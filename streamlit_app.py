@@ -68,7 +68,14 @@ def main():
                                 tuition_fees_up_to_date, gender, scholarship_holder,
                                 age_at_enrollment, international, curricular_units_1st_sem_credited,
                                 unemployment_rate, inflation_rate, gdp]], 
-                               columns=df.columns)
+                               columns=['Marital status', 'Application mode', 'Course',
+                                        'Daytime/evening attendance', 'Previous qualification',
+                                        'Previous qualification (grade)', 'Nationality', 'Mother_qualification',
+                                        'Father_qualification', 'Mother_occupation', 'Father_occupation',
+                                        'Admission grade', 'Displaced', 'Educational special needs', 'Debtor',
+                                        'Tuition fees up to date', 'Gender', 'Scholarship holder', 
+                                        'Age at enrollment', 'International', 'Curricular units 1st sem (credited)',
+                                        'Unemployment rate', 'Inflation rate', 'GDP'])
         
         # Ensure the new_data is transformed like training data (e.g., encoding, scaling)
         # Make a prediction
