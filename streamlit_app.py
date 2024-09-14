@@ -32,6 +32,7 @@ def main():
     # Dropdowns for categorical features
     marital_status = st.selectbox("Marital status", sorted(df['Marital status'].unique()))
     application_mode = st.selectbox("Application mode", sorted(df['Application mode'].unique()))
+    application_order = st.selectbox("Application order", sorted(df['Application order'].unique()))
     course = st.selectbox("Course", sorted(df['Course'].unique()))
     daytime_evening_attendance = st.selectbox("Daytime/evening attendance", sorted(df['Daytime/evening attendance'].unique()))
     previous_qualification = st.selectbox("Previous qualification", sorted(df['Previous qualification'].unique()))
@@ -71,7 +72,7 @@ def main():
     # Create a button to trigger prediction
     if st.button("Predict"):
         # Create a DataFrame with user input for all features
-        new_data = pd.DataFrame([[marital_status, application_mode, course,
+        new_data = pd.DataFrame([[marital_status, application_mode, application_order, course,
                                 daytime_evening_attendance, previous_qualification,
                                 previous_qualification_grade, nationality, mother_qualification,
                                 father_qualification, mother_occupation, father_occupation,
@@ -85,29 +86,27 @@ def main():
                                 curricular_units_2nd_sem_approved, curricular_units_2nd_sem_grade,
                                 curricular_units_2nd_sem_without_evaluations, unemployment_rate,
                                 inflation_rate, gdp]], 
-                               columns=['Marital status', 'Application mode', 'Course',
+                               columns=['Marital status', 'Application mode', 'Application order', 'Course',
                                         'Daytime/evening attendance', 'Previous qualification',
-                                        'Previous qualification (grade)', 'Nationality', 'Mother_qualification',
-                                        'Father_qualification', 'Mother_occupation', 'Father_occupation',
-                                        'Admission grade', 'Displaced', 'Educational special needs', 'Debtor',
-                                        'Tuition fees up to date', 'Gender', 'Scholarship holder', 
-                                        'Age at enrollment', 'International', 'Curricular units 1st sem (credited)',
-                                        'Curricular units 1st sem (enrolled)', 'Curricular units 1st sem (evaluations)',
-                                        'Curricular units 1st sem (approved)', 'Curricular units 1st sem (grade)',
-                                        'Curricular units 1st sem (without evaluations)', 'Curricular units 2nd sem (credited)',
-                                        'Curricular units 2nd sem (enrolled)', 'Curricular units 2nd sem (evaluations)',
-                                        'Curricular units 2nd sem (approved)', 'Curricular units 2nd sem (grade)',
-                                        'Curricular units 2nd sem (without evaluations)', 'Unemployment rate',
-                                        'Inflation rate', 'GDP'])
+                                        'Previous qualification (grade)', 'Nationality',
+                                        'Mother_qualification', 'Father_qualification',
+                                        'Mother_occupation', 'Father_occupation', 'Admission grade',
+                                        'Displaced', 'Educational special needs', 'Debtor',
+                                        'Tuition fees up to date', 'Gender', 'Scholarship holder',
+                                        'Age at enrollment', 'International',
+                                        'Curricular units 1st sem (credited)', 'Curricular units 1st sem (enrolled)', 
+                                        'Curricular units 1st sem (evaluations)', 'Curricular units 1st sem (approved)', 
+                                        'Curricular units 1st sem (grade)', 'Curricular units 1st sem (without evaluations)',
+                                        'Curricular units 2nd sem (credited)', 'Curricular units 2nd sem (enrolled)', 
+                                        'Curricular units 2nd sem (evaluations)', 'Curricular units 2nd sem (approved)', 
+                                        'Curricular units 2nd sem (grade)', 'Curricular units 2nd sem (without evaluations)',
+                                        'Unemployment rate', 'Inflation rate', 'GDP'])
+        
+        # Apply preprocessing to the new data
+        new_data_preprocessed = preprocessor.transform(new_data)
               
-        # Ensure the new_data is transformed like training data (e.g., encoding, scaling)
-
-        # Check if the categorical features in new_data are already in numeric form and ensure they're correctly categorized
-        for col in categorical_cols:
-            new_data[col] = new_data[col].astype('category')  # Ensure they are categorical
-
         # Make a prediction
-        prediction = rf_pipeline.predict(new_data)[0]
+        prediction = rf_pipeline.predict(new_data_preprocessed)[0]
         
         # Get the corresponding label for the predicted class
         prediction_label = label_encoder.inverse_transform([prediction])[0]
