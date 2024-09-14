@@ -102,8 +102,6 @@ def main():
                                         'Curricular units 2nd sem (grade)', 'Curricular units 2nd sem (without evaluations)',
                                         'Unemployment rate', 'Inflation rate', 'GDP'])
         
-        # Apply preprocessing to the new data
-        new_data_preprocessed = preprocessor.transform(new_data)
               
         # Make a prediction
         prediction = rf_pipeline.predict(new_data_preprocessed)[0]
