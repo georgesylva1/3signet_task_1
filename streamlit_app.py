@@ -104,7 +104,7 @@ def main():
         
               
         # Make a prediction
-        prediction = rf_pipeline.predict(new_data_preprocessed)[0]
+        prediction = rf_pipeline.predict(ew_data)[0]
         
         # Get the corresponding label for the predicted class
         prediction_label = label_encoder.inverse_transform([prediction])[0]
