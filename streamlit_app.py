@@ -30,29 +30,40 @@ def main():
     st.write("Enter the features below and click 'Predict' to get a prediction.")
     
     # Dropdowns for categorical features
-    marital_status = st.selectbox("Marital status", df['Marital status'].unique())
-    application_mode = st.selectbox("Application mode", df['Application mode'].unique())
-    course = st.selectbox("Course", df['Course'].unique())
-    daytime_evening_attendance = st.selectbox("Daytime/evening attendance", df['Daytime/evening attendance'].unique())
-    previous_qualification = st.selectbox("Previous qualification", df['Previous qualification'].unique())
-    nationality = st.selectbox("Nationality", df['Nationality'].unique())
-    mother_qualification = st.selectbox("Mother's qualification", df['Mother_qualification'].unique())
-    father_qualification = st.selectbox("Father's qualification", df['Father_qualification'].unique())
-    mother_occupation = st.selectbox("Mother's occupation", df['Mother_occupation'].unique())
-    father_occupation = st.selectbox("Father's occupation", df['Father_occupation'].unique())
-    displaced = st.selectbox("Displaced", df['Displaced'].unique())
-    educational_special_needs = st.selectbox("Educational special needs", df['Educational special needs'].unique())
-    debtor = st.selectbox("Debtor", df['Debtor'].unique())
-    tuition_fees_up_to_date = st.selectbox("Tuition fees up to date", df['Tuition fees up to date'].unique())
-    gender = st.selectbox("Gender", df['Gender'].unique())
-    scholarship_holder = st.selectbox("Scholarship holder", df['Scholarship holder'].unique())
-    international = st.selectbox("International", df['International'].unique())
+    marital_status = st.selectbox("Marital status", sorted(df['Marital status'].unique()))
+    application_mode = st.selectbox("Application mode", sorted(df['Application mode'].unique()))
+    course = st.selectbox("Course", sorted(df['Course'].unique()))
+    daytime_evening_attendance = st.selectbox("Daytime/evening attendance", sorted(df['Daytime/evening attendance'].unique()))
+    previous_qualification = st.selectbox("Previous qualification", sorted(df['Previous qualification'].unique()))
+    nationality = st.selectbox("Nationality", sorted(df['Nationality'].unique()))
+    mother_qualification = st.selectbox("Mother's qualification", sorted(df['Mother_qualification'].unique()))
+    father_qualification = st.selectbox("Father's qualification", sorted(df['Father_qualification'].unique()))
+    mother_occupation = st.selectbox("Mother's occupation", sorted(df['Mother_occupation'].unique()))
+    father_occupation = st.selectbox("Father's occupation", sorted(df['Father_occupation'].unique()))
+    displaced = st.selectbox("Displaced", sorted(df['Displaced'].unique()))
+    educational_special_needs = st.selectbox("Educational special needs", sorted(df['Educational special needs'].unique()))
+    debtor = st.selectbox("Debtor", sorted(df['Debtor'].unique()))
+    tuition_fees_up_to_date = st.selectbox("Tuition fees up to date", sorted(df['Tuition fees up to date'].unique()))
+    gender = st.selectbox("Gender", sorted(df['Gender'].unique()))
+    scholarship_holder = st.selectbox("Scholarship holder", sorted(df['Scholarship holder'].unique()))
+    international = st.selectbox("International", sorted(df['International'].unique()))
     
     # Sliders for numerical features
     previous_qualification_grade = st.slider("Previous qualification (grade)", min_value=float(df['Previous qualification (grade)'].min()), max_value=float(df['Previous qualification (grade)'].max()), step=0.1)
     admission_grade = st.slider("Admission grade", min_value=float(df['Admission grade'].min()), max_value=float(df['Admission grade'].max()), step=0.1)
     age_at_enrollment = st.slider("Age at enrollment", min_value=int(df['Age at enrollment'].min()), max_value=int(df['Age at enrollment'].max()), step=1)
     curricular_units_1st_sem_credited = st.slider("Curricular units 1st sem (credited)", min_value=int(df['Curricular units 1st sem (credited)'].min()), max_value=int(df['Curricular units 1st sem (credited)'].max()), step=1)
+    curricular_units_1st_sem_enrolled = st.slider("Curricular units 1st sem (enrolled)", min_value=int(df['Curricular units 1st sem (enrolled)'].min()), max_value=int(df['Curricular units 1st sem (enrolled)'].max()), step=1)
+    curricular_units_1st_sem_evaluations = st.slider("Curricular units 1st sem (evaluations)", min_value=int(df['Curricular units 1st sem (evaluations)'].min()), max_value=int(df['Curricular units 1st sem (evaluations)'].max()), step=1)
+    curricular_units_1st_sem_approved = st.slider("Curricular units 1st sem (approved)", min_value=int(df['Curricular units 1st sem (approved)'].min()), max_value=int(df['Curricular units 1st sem (approved)'].max()), step=1)
+    curricular_units_1st_sem_grade = st.slider("Curricular units 1st sem (grade)", min_value=float(df['Curricular units 1st sem (grade)'].min()), max_value=float(df['Curricular units 1st sem (grade)'].max()), step=0.1)
+    curricular_units_1st_sem_without_evaluations = st.slider("Curricular units 1st sem (without evaluations)", min_value=int(df['Curricular units 1st sem (without evaluations)'].min()), max_value=int(df['Curricular units 1st sem (without evaluations)'].max()), step=1)
+    curricular_units_2nd_sem_credited = st.slider("Curricular units 2nd sem (credited)", min_value=int(df['Curricular units 2nd sem (credited)'].min()), max_value=int(df['Curricular units 2nd sem (credited)'].max()), step=1)
+    curricular_units_2nd_sem_enrolled = st.slider("Curricular units 2nd sem (enrolled)", min_value=int(df['Curricular units 2nd sem (enrolled)'].min()), max_value=int(df['Curricular units 2nd sem (enrolled)'].max()), step=1)
+    curricular_units_2nd_sem_evaluations = st.slider("Curricular units 2nd sem (evaluations)", min_value=int(df['Curricular units 2nd sem (evaluations)'].min()), max_value=int(df['Curricular units 2nd sem (evaluations)'].max()), step=1)
+    curricular_units_2nd_sem_approved = st.slider("Curricular units 2nd sem (approved)", min_value=int(df['Curricular units 2nd sem (approved)'].min()), max_value=int(df['Curricular units 2nd sem (approved)'].max()), step=1)
+    curricular_units_2nd_sem_grade = st.slider("Curricular units 2nd sem (grade)", min_value=float(df['Curricular units 2nd sem (grade)'].min()), max_value=float(df['Curricular units 2nd sem (grade)'].max()), step=0.1)
+    curricular_units_2nd_sem_without_evaluations = st.slider("Curricular units 2nd sem (without evaluations)", min_value=int(df['Curricular units 2nd sem (without evaluations)'].min()), max_value=int(df['Curricular units 2nd sem (without evaluations)'].max()), step=1)
     unemployment_rate = st.slider("Unemployment rate", min_value=float(df['Unemployment rate'].min()), max_value=float(df['Unemployment rate'].max()), step=0.1)
     inflation_rate = st.slider("Inflation rate", min_value=float(df['Inflation rate'].min()), max_value=float(df['Inflation rate'].max()), step=0.1)
     gdp = st.slider("GDP", min_value=float(df['GDP'].min()), max_value=float(df['GDP'].max()), step=0.1)
@@ -67,7 +78,13 @@ def main():
                                 admission_grade, displaced, educational_special_needs, debtor,
                                 tuition_fees_up_to_date, gender, scholarship_holder,
                                 age_at_enrollment, international, curricular_units_1st_sem_credited,
-                                unemployment_rate, inflation_rate, gdp]], 
+                                curricular_units_1st_sem_enrolled, curricular_units_1st_sem_evaluations,
+                                curricular_units_1st_sem_approved, curricular_units_1st_sem_grade,
+                                curricular_units_1st_sem_without_evaluations, curricular_units_2nd_sem_credited,
+                                curricular_units_2nd_sem_enrolled, curricular_units_2nd_sem_evaluations,
+                                curricular_units_2nd_sem_approved, curricular_units_2nd_sem_grade,
+                                curricular_units_2nd_sem_without_evaluations, unemployment_rate,
+                                inflation_rate, gdp]], 
                                columns=['Marital status', 'Application mode', 'Course',
                                         'Daytime/evening attendance', 'Previous qualification',
                                         'Previous qualification (grade)', 'Nationality', 'Mother_qualification',
@@ -75,9 +92,20 @@ def main():
                                         'Admission grade', 'Displaced', 'Educational special needs', 'Debtor',
                                         'Tuition fees up to date', 'Gender', 'Scholarship holder', 
                                         'Age at enrollment', 'International', 'Curricular units 1st sem (credited)',
-                                        'Unemployment rate', 'Inflation rate', 'GDP'])
-        
+                                        'Curricular units 1st sem (enrolled)', 'Curricular units 1st sem (evaluations)',
+                                        'Curricular units 1st sem (approved)', 'Curricular units 1st sem (grade)',
+                                        'Curricular units 1st sem (without evaluations)', 'Curricular units 2nd sem (credited)',
+                                        'Curricular units 2nd sem (enrolled)', 'Curricular units 2nd sem (evaluations)',
+                                        'Curricular units 2nd sem (approved)', 'Curricular units 2nd sem (grade)',
+                                        'Curricular units 2nd sem (without evaluations)', 'Unemployment rate',
+                                        'Inflation rate', 'GDP'])
+              
         # Ensure the new_data is transformed like training data (e.g., encoding, scaling)
+
+        # Check if the categorical features in new_data are already in numeric form and ensure they're correctly categorized
+        for col in categorical_cols:
+            new_data[col] = new_data[col].astype('category')  # Ensure they are categorical
+
         # Make a prediction
         prediction = rf_pipeline.predict(new_data)[0]
         
