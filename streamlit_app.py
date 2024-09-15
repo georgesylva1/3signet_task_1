@@ -111,7 +111,12 @@ def main():
 
         # Display the prediction and its corresponding label
         st.write("Prediction (Class):", prediction)
-        st.write("Prediction (Label):", prediction_label)
+        
+        # Check the predicted label and display a corresponding message
+        if prediction_label == "Dropout":
+            st.write("High likelihood of Dropout")
+        else:
+            st.write("Not Likely to Dropout")
 
 if __name__ == "__main__":
     main()
