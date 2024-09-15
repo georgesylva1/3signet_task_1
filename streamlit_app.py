@@ -109,9 +109,10 @@ def main():
         # Get the corresponding label for the predicted class
         prediction_label = label_encoder.inverse_transform([prediction])[0]
 
-        # Display the prediction and its corresponding label
-        st.write("Prediction (Class):", prediction)
-        
+        # # Display the prediction and its corresponding label
+        # st.write("Prediction (Class):", prediction)
+        # st.write("Prediction (Label):", prediction_label)
+
         # Check the predicted label and display a corresponding message
         if prediction_label == "Dropout":
             st.write("High likelihood of Dropout")
