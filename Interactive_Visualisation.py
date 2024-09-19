@@ -121,6 +121,17 @@ elif plot_category == "Bivariate":
         
         fig.update_layout(title=f"Scatter Plot of {x_col} vs {y_col}")
         st.plotly_chart(fig)
+    
+        # Box Plot for categorical vs numerical
+    elif bivariate_plot == "Box Plot (Categorical vs Numerical)":
+        cat_col = st.sidebar.selectbox("Select Categorical Column", categorical_columns)
+        num_col = st.sidebar.selectbox("Select Numerical Column", numerical_columns)
+        st.subheader(f"Box Plot: {cat_col} vs {num_col}")
+        
+        fig, ax = plt.subplots()
+        sns.boxplot(x=df[cat_col], y=df[num_col], palette='Set2')
+        plt.xticks(rotation=45)
+        st.pyplot(fig)
 
 # Multivariate Plots
 elif plot_category == "Multivariate":
