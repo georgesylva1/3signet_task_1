@@ -103,6 +103,7 @@ if plot_category == "Univariate":
         st.pyplot(fig)
 
 # Bivariate Plots
+#scatter plot for Numerical vs Numerical
 elif plot_category == "Bivariate":
     st.title("Bivariate Plots")
     bivariate_plot = st.sidebar.selectbox("Select Bivariate Plot", ["Scatter Plot (Numerical vs Numerical)"])
@@ -122,16 +123,24 @@ elif plot_category == "Bivariate":
         fig.update_layout(title=f"Scatter Plot of {x_col} vs {y_col}")
         st.plotly_chart(fig)
     
-        # Box Plot for categorical vs numerical
+    # Box Plot for categorical vs numerical
     elif bivariate_plot == "Box Plot (Categorical vs Numerical)":
-        cat_col = st.sidebar.selectbox("Select Categorical Column", categorical_columns)
-        num_col = st.sidebar.selectbox("Select Numerical Column", numerical_columns)
-        st.subheader(f"Box Plot: {cat_col} vs {num_col}")
-        
-        fig, ax = plt.subplots()
-        sns.boxplot(x=df[cat_col], y=df[num_col], palette='Set2')
-        plt.xticks(rotation=45)
-        st.pyplot(fig)
+    cat_col = st.sidebar.selectbox("Select Categorical Column", categorical_columns)
+    num_col = st.sidebar.selectbox("Select Numerical Column", numerical_columns)
+    st.subheader(f"Box Plot: {cat_col} vs {num_col}")
+
+    fig = go.Figure()
+    for cat in df[cat_col].unique():
+        df_subset = df[df[cat_col] == cat]
+        fig.add_trace(go.Box(
+            y=df_subset[num_col],
+            name=cat,
+            marker=dict(color='skyblue', line=dict(color='black', width=1)),
+            boxmean='sd'  # Optionally, show mean and standard deviation
+        ))
+
+    fig.update_layout(title=f"Box Plot of {num_col} by {cat_col}")
+    st.plotly_chart(fig)
 
 # Multivariate Plots
 elif plot_category == "Multivariate":
