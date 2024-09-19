@@ -112,10 +112,11 @@ elif plot_category == "Bivariate":
         y_col = st.sidebar.selectbox("Select Y-axis Column", numerical_columns)
         st.subheader(f"Scatter Plot: {x_col} vs {y_col}")
         
+        color_palette = {'Dropout': 'red', 'Enrolled': 'blue', 'Graduate': 'green'}
         fig = go.Figure(go.Scatter(
             x=df[x_col], y=df[y_col],
             mode='markers',
-            marker=dict(size=5, color='blue', opacity=0.7)
+            marker=dict(size=5, color=df['Target'].map(color_palette), opacity=0.7)
         ))
         
         fig.update_layout(title=f"Scatter Plot of {x_col} vs {y_col}")
