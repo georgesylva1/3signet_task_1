@@ -213,9 +213,9 @@ elif plot_category == "Multivariate":
         df_pca_3d = pd.DataFrame(data=X_pca_3d, columns=['PC1', 'PC2', 'PC3'])
         df_pca_3d['Target'] = y_encoded
 
-        color_map = {0: 'red', 1: 'blue', 2: 'green'}  # Update with your actual labels
+        color_map = {0: 'red', 1: 'blue', 2: 'green'}
         fig = px.scatter_3d(df_pca_3d, x='PC1', y='PC2', z='PC3', color='Target',
-                            color_continuous_scale='viridis', size_max=5,
+                            color_continuous_scale='viridis', size_max=2,
                             title='PCA 3D Visualization')
 
         fig.update_layout(
