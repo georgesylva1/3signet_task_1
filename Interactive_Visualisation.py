@@ -103,11 +103,11 @@ if plot_category == "Univariate":
         st.pyplot(fig)
 
 # Bivariate Plots
-#scatter plot for Numerical vs Numerical
 elif plot_category == "Bivariate":
     st.title("Bivariate Plots")
-    bivariate_plot = st.sidebar.selectbox("Select Bivariate Plot", ["Scatter Plot (Numerical vs Numerical)"])
+    bivariate_plot = st.sidebar.selectbox("Select Bivariate Plot", ["Scatter Plot (Numerical vs Numerical)", "Box Plot (Categorical vs Numerical)"])
 
+    # Scatter plot for numerical vs numerical
     if bivariate_plot == "Scatter Plot (Numerical vs Numerical)":
         x_col = st.sidebar.selectbox("Select X-axis Column", numerical_columns)
         y_col = st.sidebar.selectbox("Select Y-axis Column", numerical_columns)
@@ -123,24 +123,26 @@ elif plot_category == "Bivariate":
         fig.update_layout(title=f"Scatter Plot of {x_col} vs {y_col}")
         st.plotly_chart(fig)
     
-# Box Plot for categorical vs numerical
-elif bivariate_plot == "Box Plot (Categorical vs Numerical)":
-cat_col = st.sidebar.selectbox("Select Categorical Column", categorical_columns)
-num_col = st.sidebar.selectbox("Select Numerical Column", numerical_columns)
-st.subheader(f"Box Plot: {cat_col} vs {num_col}")
+    # Box Plot for categorical vs numerical
+    elif bivariate_plot == "Box Plot (Categorical vs Numerical)":
+        cat_col = st.sidebar.selectbox("Select Categorical Column", categorical_columns)
+        num_col = st.sidebar.selectbox("Select Numerical Column", numerical_columns)
+        
+        # Ensure the selected columns are of correct type
+        df[cat_col] = df[cat_col].astype('category')
+        df[num_col] = pd.to_numeric(df[num_col], errors='coerce')
 
-fig = go.Figure()
-for cat in df[cat_col].unique():
-    df_subset = df[df[cat_col] == cat]
-    fig.add_trace(go.Box(
-        y=df_subset[num_col],
-        name=cat,
-        marker=dict(color='skyblue', line=dict(color='black', width=1)),
-        boxmean='sd'  # Optionally, show mean and standard deviation
-    ))
+        st.subheader(f"Box Plot: {cat_col} vs {num_col}")
 
-fig.update_layout(title=f"Box Plot of {num_col} by {cat_col}")
-st.plotly_chart(fig)
+        # Check for missing values
+        df_filtered = df[[cat_col, num_col]].dropna()
+
+        fig, ax = plt.subplots()
+        sns.boxplot(x=df_filtered[cat_col], y=df_filtered[num_col], palette='Set2', ax=ax)
+        
+        plt.xticks(rotation=45)
+        plt.title(f'{cat_col} vs {num_col}')
+        st.pyplot(fig)
 
 # Multivariate Plots
 elif plot_category == "Multivariate":
