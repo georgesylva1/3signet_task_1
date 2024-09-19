@@ -124,7 +124,7 @@ elif plot_category == "Bivariate":
 # Multivariate Plots
 elif plot_category == "Multivariate":
     st.title("Multivariate Plots")
-    multivariate_plot = st.sidebar.selectbox("Select Multivariate Plot", ["Correlation Heatmap", "Scatter Plot with Target", "PCA 2D Plot", "PCA 3D Plot"])
+    multivariate_plot = st.sidebar.selectbox("Select Multivariate Plot", ["Correlation Heatmap", "Scatter Plot with Target", "PCA 2D", "PCA 3D"])
 
     # Correlation Heatmap
     if multivariate_plot == "Correlation Heatmap":
@@ -180,8 +180,8 @@ elif plot_category == "Multivariate":
         fig.update_layout(title=f"Scatter Plot of {selected_pair[0]} vs {selected_pair[1]}")
         st.plotly_chart(fig)
 
-    # PCA 2D Plot
-    elif multivariate_plot == "PCA 2D Plot":
+    # PCA 2D
+    elif multivariate_plot == "PCA 2D":
         st.subheader("PCA 2D Visualization")
         df_pca_2d = pd.DataFrame(data=X_pca_2d, columns=['PC1', 'PC2'])
         df_pca_2d['Target'] = y_encoded
@@ -207,8 +207,8 @@ elif plot_category == "Multivariate":
         )
         st.plotly_chart(fig)
 
-    # PCA 3D Plot
-    elif multivariate_plot == "PCA 3D Plot":
+    # PCA 3D
+    elif multivariate_plot == "PCA 3D":
         st.subheader("PCA 3D Visualization")
         df_pca_3d = pd.DataFrame(data=X_pca_3d, columns=['PC1', 'PC2', 'PC3'])
         df_pca_3d['Target'] = y_encoded
