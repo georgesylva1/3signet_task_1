@@ -7,7 +7,9 @@ Predicting student dropout can help educational institutions identify students a
 
 ### ✨ Features
 **Interactive Interface**: Users can input features such as course enrollment, grades, and curricular performance via dropdowns and sliders.
+
 **Real-time Predictions**: Predict whether a student is likely to drop out or stay enrolled, with instant feedback.
+
 **User-friendly Outputs**: Displays clear results, e.g., "High likelihood of Dropout" or "Not Likely to Dropout."
 
 **Input Features**:
