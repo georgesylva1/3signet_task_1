@@ -1,12 +1,12 @@
- Student Dropout Prediction App
+# Student Dropout Prediction App
 
 An interactive web application that predicts student dropout likelihood based on academic and personal features. The app uses a trained Random Forest model to provide insights into whether a student is likely to drop out, stay enrolled, or graduate.
 
-📋 Table of Contents
-Introduction
-Features
-Installation
-Usage
+### 📋 Table of Contents
+- Introduction
+- Features
+- Installation
+- Usage
 Model Overview
 Technologies Used
 Project Structure
