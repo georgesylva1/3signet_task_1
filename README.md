@@ -14,7 +14,10 @@ Predicting student dropout can help educational institutions identify students a
 
 **Input Features**:
 Categorical: Course, Mother's Occupation, Tuition Fees Up-to-Date
-Numerical: Previous Qualification Grade, Admission Grade, Age at Enrollment, Performance in Curricular Units
+
+Numerical: Previous qualification (grade), Admission grade, Age at enrollment, Curricular units 1st sem (enrolled), Curricular units 1st sem (evaluations),
+Curricular units 1st sem (approved), Curricular units 1st sem (grade), Curricular units 2nd sem (enrolled), Curricular units 2nd sem (evaluations),
+ Curricular units 2nd sem (approved), Curricular units 2nd sem (grade), GDP.
 
 📊 Usage
 Open the app in your browser. url is (https://3signettask1-version3.streamlit.app/)
