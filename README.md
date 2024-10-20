@@ -12,13 +12,13 @@ Predicting student dropout can help educational institutions identify students a
 
 **User-friendly Outputs**: Displays clear results, e.g., "High likelihood of Dropout" or "Not Likely to Dropout."
 
-**Input Features**:
+### Input Features:
 
-Categorical: Course, Mother's Occupation, Tuition Fees Up-to-Date
+**Categorical**: Course, Mother's Occupation, Tuition Fees Up-to-Date
 
-Numerical: Previous qualification (grade), Admission grade, Age at enrollment, Curricular units 1st sem (enrolled), Curricular units 1st sem (evaluations),
+**Numerical**: Previous qualification (grade), Admission grade, Age at enrollment, Curricular units 1st sem (enrolled), Curricular units 1st sem (evaluations),
 Curricular units 1st sem (approved), Curricular units 1st sem (grade), Curricular units 2nd sem (enrolled), Curricular units 2nd sem (evaluations),
- Curricular units 2nd sem (approved), Curricular units 2nd sem (grade), GDP.
+Curricular units 2nd sem (approved), Curricular units 2nd sem (grade), GDP.
 
 📊 Usage
 Open the app in your browser. url is (https://3signettask1-version3.streamlit.app/)
