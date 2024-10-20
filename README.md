@@ -19,9 +19,9 @@ Numerical: Previous Qualification Grade, Admission Grade, Age at Enrollment, Per
 📊 Usage
 Open the app in your browser. url is (https://3signettask1-version3.streamlit.app/)
 Input the student's academic and personal information using the dropdowns and sliders.
+
 Press the "Predict" button to generate a prediction.
 The prediction will indicate whether the student has a High likelihood of Dropout or is Not Likely to Dropout.
-Example Prediction:
 
 
 ### Data Analysis and Model Evaluation
@@ -29,8 +29,11 @@ Before deploying the predictive model in a Streamlit app, a comprehensive data a
 
 **Data Preprocessing**: The dataset was cleaned, with missing values imputed and categorical features encoded. Numerical features were scaled to ensure consistency.
 Feature Engineering: Key features were selected for model training, including both categorical and numerical variables (e.g., 'Course', 'Admission grade', 'Age at enrollment', 'Curricular units' etc).
+
 **Model Training**: Several models were trained, including Random Forest and XGBoost. These were fine-tuned using RandomizedSearchCV for optimal performance.
-Cross-Validation and Evaluation: The models were evaluated using cross-validation and metrics such as accuracy, precision, recall, and F1-score to ensure generalization. The final model achieved strong performance on the test set.
+Cross-Validation and Evaluation: The models were evaluated using cross-validation and metrics such as accuracy, precision, recall, and F1-score to ensure generalization. 
+The final model achieved strong performance on the test set.
+
 The best-performing model was saved and integrated into the Streamlit app, allowing users to make real-time predictions based on new data inputs.
 
 
