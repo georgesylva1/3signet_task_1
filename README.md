@@ -2,17 +2,6 @@
 
 An interactive web application that predicts student dropout likelihood based on academic and personal features. The app uses a trained Random Forest model to provide insights into whether a student is likely to drop out, stay enrolled, or graduate.
 
-### 📋 Table of Contents
-- Introduction
-- Features
-- Installation
-- Usage
-- Model Overview
-- Technologies Used
-- Project Structure
-- Contributing
-- License
-
 ### 🚀 Introduction
 Predicting student dropout can help educational institutions identify students at risk and provide timely interventions. This app takes in academic data and personal details to predict the likelihood of dropout. It also provides an easy-to-use interface built with Streamlit for interactive predictions.
 
