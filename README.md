@@ -13,6 +13,7 @@ Predicting student dropout can help educational institutions identify students a
 **User-friendly Outputs**: Displays clear results, e.g., "High likelihood of Dropout" or "Not Likely to Dropout."
 
 **Input Features**:
+
 Categorical: Course, Mother's Occupation, Tuition Fees Up-to-Date
 
 Numerical: Previous qualification (grade), Admission grade, Age at enrollment, Curricular units 1st sem (enrolled), Curricular units 1st sem (evaluations),
