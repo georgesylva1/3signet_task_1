@@ -29,7 +29,8 @@ The prediction will indicate whether the student has a High likelihood of Dropou
 
 
 ### Data Analysis and Model Evaluation
-Before deploying the predictive model in a Streamlit app, a comprehensive data analysis and model evaluation process was carried out to ensure accuracy and performance:
+Before deploying the predictive model in a Streamlit app, a comprehensive data analysis and model evaluation process was carried out to ensure accuracy and performance. 
+To see the relationships between the various features before we had to drop the less important ones check the url: (https://3signettask1-visuals2.streamlit.app/)
 
 **Data Preprocessing**: The dataset was cleaned, with missing values imputed and categorical features encoded. Numerical features were scaled to ensure consistency.
 Feature Engineering: Key features were selected for model training, including both categorical and numerical variables (e.g., 'Course', 'Admission grade', 'Age at enrollment', 'Curricular units' etc).
