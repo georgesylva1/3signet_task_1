@@ -21,7 +21,7 @@ Curricular units 1st sem (approved), Curricular units 1st sem (grade), Curricula
 Curricular units 2nd sem (approved), Curricular units 2nd sem (grade), GDP.
 
 📊 Usage
-Open the app in your browser. url is (https://3signettask1-version3.streamlit.app/)
+Open the app in your browser. url is (https://3signettask1-app3.streamlit.app/)
 Input the student's academic and personal information using the dropdowns and sliders.
 
 Press the "Predict" button to generate a prediction.
